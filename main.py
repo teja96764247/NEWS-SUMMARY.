@@ -12,13 +12,16 @@ nltk.download('punkt')
 url = st.text_input("Enter URL:")
 
 if url:
-    article=Article(url)
-
+    article = Article(url)
     article.download()
     article.parse()
 
     article.nlp()
 
+    main_image_url=article.top_image
+    st.image(main_image_url)
+
+    
     st.markdown("<h3 style='font-weight:bold'>Tittle Of the Article</h3>", unsafe_allow_html=True)
     st.write(article.title)
 
